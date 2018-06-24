@@ -1,0 +1,10 @@
+language: rust
+before_install:
+  - sudo apt-get install -y nmap
+env:
+  # Needed as the server and client tests need to send/receive data in the
+  # correct order.
+  - RUST_TEST_THREADS=1 RUST_BACKTRACE=1
+rust:
+  - nightly
+cache: cargo
